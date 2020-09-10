@@ -24,7 +24,8 @@ NOTE this is not a secure way to generate a password, as it relies on a client s
 
 ## Screenshot of Website
 
-<img src="/password-generator-2020/screenshot.png">
+![screenshot](https://user-images.githubusercontent.com/70170162/92813858-b457aa00-f387-11ea-9123-686a350147fc.png)
+
 
 ## resources Used
 
