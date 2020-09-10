@@ -3,7 +3,7 @@
 ### Author: David Guthmann
 
 github: https://github.com/Dguthmann/  
-livesite: https://dguthmann.github.io/password-generator-2020/index.html
+livesite: https://dguthmann.github.io/password-generator-2020/
 
 ## List of Contents
 
@@ -24,7 +24,7 @@ NOTE this is not a secure way to generate a password, as it relies on a client s
 
 ## Screenshot of Website
 
-
+<img src="/password-generator-2020/screenshot.png">
 
 ## resources Used
 
