@@ -1,14 +1,14 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+//Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
-//   return passwordText.value;
-// }
+  passwordText.value = password;
+  return passwordText.value;
+}
 
 function generatePassword() {
 
@@ -27,8 +27,9 @@ function generatePassword() {
   } while (sizeCheck) {
     console.log(`My length is ${pwLength}`);
   }
-  //Confirm User Lowercase
+  //Confirm User for types of characters used run until at least 1 is selected
   do {
+    //Confirm User Lowercase
     var caseLower = confirm("Should lowercase Letters be used?")
     //Confirm User Uppercase
     var caseUpper = confirm("Should uppercase letters be used?")
@@ -39,7 +40,6 @@ function generatePassword() {
     //Leave function with testing variable
   } while (!(caseLower || caseUpper || caseNumeric || caseSpecial));
 
-
   // Generate tables of letters to random
   // 4 need cases for each or needing simpler way
   var charLower = `abcdefghijklmnopqrstuvwxyz`;
@@ -49,32 +49,40 @@ function generatePassword() {
   var charPool = ``;
 
   // 4 if loops confirming the addition of the strings to a character pool;
-  if(caseLower){
+  if (caseLower) {
     charPool = charPool + charLower;
     console.log(charPool);
   }
-  if(caseUpper){
+  if (caseUpper) {
     charPool = charPool + charUpper;
     console.log(charPool);
   }
-  if(caseNumeric){
+  if (caseNumeric) {
     charPool = charPool + charNum;
     console.log(charPool);
   }
-  if(caseSpecial){
+  if (caseSpecial) {
     charPool = charPool + charSpec;
     console.log(charPool);
   }
 
   //With the Pool of Characters using random generated enough characters to fill the length required
-
+  var placeHolder = 0;
+  var createdPassword = ``;
+  for (let i = 0; i < pwLength; i++) {
+    //creates pseudorandom placeHolder check
+    placeHolder = (Math.ceil(Math.random() * charPool.length));
+    //takes placeHolder and adds the character selected to the password
+    createdPassword = createdPassword + charPool.charAt(placeHolder);
+    console.log(createdPassword);
+  }
 
 
 
   console.log("I have exited.");
-  return "works";
+  return createdPassword;
 }
 
 // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-generateBtn.addEventListener("click", generatePassword);
+generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", generatePassword);
