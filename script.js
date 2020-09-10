@@ -17,10 +17,10 @@ function generatePassword() {
 
   // take user input for length, reprompt for things outside of specified range
   do {
-    console.log("I have arrived");
+    // console.log("I have arrived");
     var passwordLength = prompt("How many character to include in the password? (min. 8 max 120)");
     var pwLength = parseInt(passwordLength);
-    console.log(`My length is ${pwLength}`);
+    // console.log(`My length is ${pwLength}`);
     if ((pwLength >= 8) && (pwLength <= 120)) {
       sizeCheck = false;
     }
@@ -41,7 +41,6 @@ function generatePassword() {
   } while (!(caseLower || caseUpper || caseNumeric || caseSpecial));
 
   // Generate tables of letters to random
-  // 4 need cases for each or needing simpler way
   var charLower = `abcdefghijklmnopqrstuvwxyz`;
   var charUpper = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`;
   var charNum = `0123456789`;
@@ -51,19 +50,19 @@ function generatePassword() {
   // 4 if loops confirming the addition of the strings to a character pool;
   if (caseLower) {
     charPool = charPool + charLower;
-    console.log(charPool);
+    // console.log(charPool);
   }
   if (caseUpper) {
     charPool = charPool + charUpper;
-    console.log(charPool);
+    // console.log(charPool);
   }
   if (caseNumeric) {
     charPool = charPool + charNum;
-    console.log(charPool);
+    // console.log(charPool);
   }
   if (caseSpecial) {
     charPool = charPool + charSpec;
-    console.log(charPool);
+    // console.log(charPool);
   }
 
   //With the Pool of Characters using random generated enough characters to fill the length required
@@ -74,15 +73,13 @@ function generatePassword() {
     placeHolder = (Math.ceil(Math.random() * charPool.length));
     //takes placeHolder and adds the character selected to the password
     createdPassword = createdPassword + charPool.charAt(placeHolder);
-    console.log(createdPassword);
+    // console.log(createdPassword);
   }
-
-
-
-  console.log("I have exited.");
+  // console.log("I have exited.");
   return createdPassword;
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+// Below is for testing of generatedPassword function, if you wanted to use the page instead of console on a browser
 // generateBtn.addEventListener("click", generatePassword);
