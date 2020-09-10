@@ -12,7 +12,7 @@ var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
 
-  // MOVE THIS SECTION OF CODE TO OTHER FUCTION
+  // Need this code in the function since generation needs pwLength
   var sizeCheck = true;
 
   // take user input for length, reprompt for things outside of specified range
@@ -39,14 +39,37 @@ function generatePassword() {
     //Leave function with testing variable
   } while (!(caseLower || caseUpper || caseNumeric || caseSpecial));
 
-  //END OF MOVE THIS CODE TO OTHER FUNCTION
 
   // Generate tables of letters to random
   // 4 need cases for each or needing simpler way
-  var charLower = `abcdefghijklmnopqrstuv`
-  var charUpper = ``
-  var charNum = ``
-  var charSpec = 
+  var charLower = `abcdefghijklmnopqrstuvwxyz`;
+  var charUpper = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`;
+  var charNum = `0123456789`;
+  var charSpec = `!@#$%^%&*(){}[]-=`;
+  var charPool = ``;
+
+  // 4 if loops confirming the addition of the strings to a character pool;
+  if(caseLower){
+    charPool = charPool + charLower;
+    console.log(charPool);
+  }
+  if(caseUpper){
+    charPool = charPool + charUpper;
+    console.log(charPool);
+  }
+  if(caseNumeric){
+    charPool = charPool + charNum;
+    console.log(charPool);
+  }
+  if(caseSpecial){
+    charPool = charPool + charSpec;
+    console.log(charPool);
+  }
+
+  //With the Pool of Characters using random generated enough characters to fill the length required
+
+
+
 
   console.log("I have exited.");
   return "works";
