@@ -29,10 +29,7 @@ NOTE this is not a secure way to generate a password, as it relies on a client s
 
 ## resources Used
 
-
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt why I implimented as string instead of array logic
-
-
 
 
 ## Further Development Plans
@@ -42,5 +39,5 @@ The project is considered complete by me, as it would require massive changes to
 
 ## Changelog
 
-2020-09-10: Addition of more comments to the file, and writing of README, first deployment
+2020-09-10: Addition of more comments to the file, and writing of README, first deployment, reworked script.js into multiple function.
 2020-09-09: Creation of files, coding the script.js file, multiple commits during the day as it was fleshed out and bug tested.
