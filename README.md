@@ -39,5 +39,6 @@ The project is considered complete by me, as it would require massive changes to
 
 ## Changelog
 
+2020-09-11: Bug Fixing, a logic error that would result in a shorter password than defined, most likely scope
 2020-09-10: Addition of more comments to the file, and writing of README, first deployment, reworked script.js into multiple function.
 2020-09-09: Creation of files, coding the script.js file, multiple commits during the day as it was fleshed out and bug tested.

@@ -1,9 +1,13 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
+
 //Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var passwordTest = getPasswordLen();
+  // take user input for length, reprompt for things outside of specified range
+  var passwordAvail = populateCharacterPool();
+  var password = generatePassword(passwordTest, passwordAvail);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
@@ -22,63 +26,58 @@ function getPasswordLen() {
       alert("Invalid Selection")
     }
   } while (sizeCheck) {
-    return passwordLength; 
+    return passwordLength;
     //console.log(`My length is ${pwLength}`);
   }
 }
 
-function populateCharacterPool(){
-    //Confirm User for types of characters used run until at least 1 is selected
-    do {
-      //Confirm User Lowercase
-      var caseLower = confirm("Should lowercase Letters be used?")
-      //Confirm User Uppercase
-      var caseUpper = confirm("Should uppercase letters be used?")
-      //Confirm Numeric
-      var caseNumeric = confirm("Should numeric characters be used?")
-      //Confirm Special
-      var caseSpecial = confirm("Should special characters be used?")
-      //Leave function with testing variable
-      if (!(caseLower || caseUpper || caseNumeric || caseSpecial)) {
-        alert("Please select at least 1 type of character.")
-      }
-    } while (!(caseLower || caseUpper || caseNumeric || caseSpecial));
-  
-    // Generate tables of letters to random
-    var charLower = `abcdefghijklmnopqrstuvwxyz`;
-    var charUpper = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`;
-    var charNum = `0123456789`;
-    var charSpec = `!@#$%^%&*(){}[]-=`;
-    var charPool = "";
-    // might need to solve this using array
-    // 4 if loops confirming the addition of the strings to a character pool;
-    if (caseLower) {
-      charPool = charPool + charLower;
-      // console.log(charPool);
+function populateCharacterPool() {
+  //Confirm User for types of characters used run until at least 1 is selected
+  do {
+    //Confirm User Lowercase
+    var caseLower = confirm("Should lowercase Letters be used?")
+    //Confirm User Uppercase
+    var caseUpper = confirm("Should uppercase letters be used?")
+    //Confirm Numeric
+    var caseNumeric = confirm("Should numeric characters be used?")
+    //Confirm Special
+    var caseSpecial = confirm("Should special characters be used?")
+    //Leave function with testing variable
+    if (!(caseLower || caseUpper || caseNumeric || caseSpecial)) {
+      alert("Please select at least 1 type of character.")
     }
-    if (caseUpper) {
-      charPool = charPool + charUpper;
-      // console.log(charPool);
-    }
-    if (caseNumeric) {
-      charPool = charPool + charNum;
-      // console.log(charPool);
-    }
-    if (caseSpecial) {
-      charPool = charPool + charSpec;
-      // console.log(charPool);
-    }
+  } while (!(caseLower || caseUpper || caseNumeric || caseSpecial));
+
+  // Generate tables of letters to random
+  var charLower = `abcdefghijklmnopqrstuvwxyz`;
+  var charUpper = `ABCDEFGHIJKLMNOPQRSTUVWXYZ`;
+  var charNum = `0123456789`;
+  var charSpec = `!@#$%^%&*(){}[]-=`;
+  var charPool = "";
+  // might need to solve this using array
+  // 4 if loops confirming the addition of the strings to a character pool;
+  if (caseLower) {
+    charPool = charPool + charLower;
+    // console.log(charPool);
+  }
+  if (caseUpper) {
+    charPool = charPool + charUpper;
+    // console.log(charPool);
+  }
+  if (caseNumeric) {
+    charPool = charPool + charNum;
+    // console.log(charPool);
+  }
+  if (caseSpecial) {
+    charPool = charPool + charSpec;
+    // console.log(charPool);
+  }
   return charPool;
 }
 
-function generatePassword() {
+function generatePassword(passwordLong, passwordPool) {
 
-  // Need this code in the function since generation needs pwLength
   var sizeCheck = true;
-  var passwordLong = getPasswordLen();
-  
-  // take user input for length, reprompt for things outside of specified range
-  var passwordPool = populateCharacterPool();
 
   //With the Pool of Characters using random generated enough characters to fill the length required
   var placeHolder = 0;
